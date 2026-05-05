@@ -2,10 +2,87 @@
 
 INSTITUTO FEDERAL DO AMAZONAS – IFAM CAMPUS IRANDUBA
 DISCIPLINA: Dispositivos Móveis
-PROFESSOR: ______________________________________
-ALUNO(A): _______________________________________
-DATA:  /  /______
+PROFESSOR: Raynere Lima
+ALUNO(A): Rakely da Slva de Souza
+DATA:05/05/2026
 Bimestre: 2º Bimestre
-Descrição da Atividade: 
+Descrição da Atividade: Boas Práticas em Formulários
+Formulários mobile devem ser simples e objetivos. Peça apenas o essencial.
+
+
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+
+export default function App() {
+const [nome, setNome] = useState('');
+const [email, setEmail] = useState('');
+const [cpf, setCpf] = useState('');
+const [data, setData] = useState('');
+
+const enviar = () => {
+if (!nome || !email || !cpf || !data) {
+Alert.alert("Erro", "Preencha todos os campos!");
+return;
+}
+
+Alert.alert("Sucesso", "Inscrição realizada!");
+};
+
+return (
+<View style={styles.container}>
+<Text style={styles.titulo}>Inscreva-se</Text>
+
+<TextInput
+style={styles.input}
+placeholder="Nome"
+value={nome}
+onChangeText={setNome}
+/>
+
+<TextInput
+style={styles.input}
+placeholder="E-mail"
+value={email}
+onChangeText={setEmail}
+/>
+
+<TextInput
+style={styles.input}
+placeholder="CPF"
+value={cpf}
+onChangeText={setCpf}
+/>
+
+<TextInput
+style={styles.input}
+placeholder="Data de Nascimento"
+value={data}
+onChangeText={setData}
+/>
+
+<Button title="Inscrever-se" onPress={enviar} />
+</View>
+);
+}
+
+const styles = StyleSheet.create({
+container: {
+flex: 1,
+justifyContent: 'center',
+padding: 20,
+},
+titulo: {
+fontSize: 24,
+marginBottom: 20,
+textAlign: 'center',
+},
+input: {
+borderWidth: 1,
+borderColor: '#ccc',
+padding: 10,
+marginBottom: 10,
+borderRadius: 5,
+},
+});
 
 **********************************************************************/
